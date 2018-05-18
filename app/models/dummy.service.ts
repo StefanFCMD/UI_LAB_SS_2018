@@ -70,21 +70,21 @@ export class DummyService {
         customer1.id = "customer01";
         customer1.name = "The Company";
         customer1.contact = contact;
-        customer1.sites = [ site ];
+        customer1.sites = [site];
         customers.push(customer1);
 
         const customer2 = new Customer();
         customer2.id = "customer02";
         customer2.name = "The Other Company";
         customer2.contact = contact;
-        customer2.sites = [ site ];
+        customer2.sites = [site];
         customers.push(customer2);
 
         const customer3 = new Customer();
         customer3.id = "customer03";
         customer3.name = "Yet Another Company";
         customer3.contact = contact;
-        customer3.sites = [ site ];
+        customer3.sites = [site];
         customers.push(customer3);
 
         return customers;

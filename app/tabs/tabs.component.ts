@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { isAndroid } from "platform";
-import { SelectedIndexChangedEventData, TabView, TabViewItem } from "tns-core-modules/ui/tab-view";
 import { RouterExtensions } from "nativescript-angular/router";
+import { clear } from "tns-core-modules/application-settings";
+import { SelectedIndexChangedEventData, TabView } from "tns-core-modules/ui/tab-view";
 
 @Component({
     selector: "TabsComponent",
@@ -12,7 +12,6 @@ import { RouterExtensions } from "nativescript-angular/router";
 export class TabsComponent implements OnInit {
 
     private _title: string;
-    appSettings = require("application-settings")
 
     constructor(private routerExtensions: RouterExtensions) {
         // Use the component constructor to inject providers.
@@ -27,8 +26,8 @@ export class TabsComponent implements OnInit {
     }
 
     logout() {
-        this.appSettings.clear();
-        this.routerExtensions.navigate(["/login"], {clearHistory: true});
+        clear();
+        this.routerExtensions.navigate(["/login"], { clearHistory: true });
     }
 
     get title(): string {
@@ -40,7 +39,6 @@ export class TabsComponent implements OnInit {
             this._title = value;
         }
     }
-
 
     onSelectedIndexChanged(args: SelectedIndexChangedEventData) {
         const tabView = <TabView>args.object;
